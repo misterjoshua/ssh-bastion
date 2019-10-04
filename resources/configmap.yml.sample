@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: bastion-config
+data:
+  ROOT_SSH_KEY: |
+    ssh-rsa PUBKEYHERE your-key

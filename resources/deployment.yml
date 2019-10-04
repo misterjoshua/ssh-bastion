@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: bastion
+  name: bastion
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: bastion
+  template:
+    metadata:
+      labels:
+        app: bastion
+    spec:
+      containers:
+        - name: bastion
+          image: wheatstalk/ssh-bastion:0.1
+          imagePullPolicy: Always
+          envFrom:
+            - configMapRef:
+                name: bastion-config
+          ports:
+            - containerPort: 22
+              protocol: TCP
+          resources:
+            requests:
+              cpu: 10m
+              memory: 16m
+            limits:
+              cpu: 2000m
+              memory: 512m
