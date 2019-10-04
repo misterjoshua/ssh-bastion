@@ -4,9 +4,12 @@ RUN apt-get update && apt-get upgrade -y && apt-get install -y \
         curl \
         dnsutils \
         host \
+        iproute2 \
+        iputils-ping \
+        less \
+        net-tools \
         netcat \
         openssh-server \
-        iputils-ping \
         telnet \
         tmux \
         vim \
